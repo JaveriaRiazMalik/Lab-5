@@ -107,10 +107,14 @@
             @Html.DisplayFor(modelItem => item.EmailId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.PersonId  }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PersonId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
         </td>
+        <td>
+            <a href="/Contact/Create/@item.PersonId" class="btn btn-default">Add Contact</a>
+        </td>
+        
     </tr>
 }
 

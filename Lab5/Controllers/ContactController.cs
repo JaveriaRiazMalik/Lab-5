@@ -22,10 +22,11 @@ namespace Lab5.Controllers
                     p.ContactId = i.ContactId;
                     p.ContactNumber = i.ContactNumber;
                     p.Type = i.Type;
+                    p.PersonId = i.PersonId;
                     l.Add(p);
                 
             }
-            return View();
+            return View(l);
         }
 
         // GET: Contact/Details/5
@@ -33,7 +34,7 @@ namespace Lab5.Controllers
         {
             List<ContactViewModel> l = new List<ContactViewModel>();
             PhoneBookDbEntities db = new PhoneBookDbEntities();
-            var v = db.Contacts.ToList();
+            var v = db.Contacts;
             foreach (var i in v)
             {
                 if (i.PersonId == id)
@@ -46,7 +47,7 @@ namespace Lab5.Controllers
                     l.Add(p);
                 }
             }
-            return View();
+            return View(l);
 
         }
 
@@ -58,7 +59,7 @@ namespace Lab5.Controllers
 
         // POST: Contact/Create
         [HttpPost]
-        public ActionResult Create(ContactViewModel collection)
+        public ActionResult Create(int id,ContactViewModel collection)
         {
             try
             {
@@ -66,9 +67,9 @@ namespace Lab5.Controllers
                 PhoneBookDbEntities db = new PhoneBookDbEntities();
 
                 Contact p = new Contact();
-                p.ContactId = collection.ContactId;
                 p.ContactNumber = collection.ContactNumber;
                 p.Type = collection.Type;
+                p.PersonId = id;
                 db.Contacts.Add(p);
                 db.SaveChanges();
                 return RedirectToAction("Index");

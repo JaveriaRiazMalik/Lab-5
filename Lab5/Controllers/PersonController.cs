@@ -97,7 +97,7 @@ namespace Lab5.Controllers
                 p.MiddleName = collection.MiddleName;
                 p.LastName = collection.LastName;
                 p.DateOfBirth = collection.DateOfBirth;
-               // p.AddedBy = User.Identity.GetUserId();
+                p.AddedBy = User.Identity.GetUserId();
                 p.AddedOn = collection.AddedOn;
                 p.HomeAddress = collection.HomeAddress;
                 p.HomeCity = collection.HomeCity;
@@ -160,36 +160,36 @@ namespace Lab5.Controllers
         // GET: Person/Delete/5
         public ActionResult Delete(int id)
         {
-            PhoneBookDbEntities db = new PhoneBookDbEntities();
-
-            var contacts = db.Contacts.Where(x => x.PersonId == id);
-            foreach(var i in contacts)
-            {
-                Contact c = new Contact()
-                {
-                    ContactId = i.ContactId
-                };
-                db.Entry(c).State = System.Data.Entity.EntityState.Deleted;
-            }
-            db.SaveChanges();
-            //var person = db.Person.Where(x => x.PersonId == id).First();
-            Person p = new Person()
-            {
-                PersonId = id
-            };
-            db.Entry(p).State = System.Data.Entity.EntityState.Deleted;
-            db.SaveChanges();
-            return Content("delete");
+            
             return View();
         }
 
         // POST: Person/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, PersonViewModel collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                PhoneBookDbEntities db = new PhoneBookDbEntities();
+
+                var contacts = db.Contacts.Where(x => x.PersonId == id);
+                foreach (var i in contacts)
+                {
+                    Contact c = new Contact()
+                    {
+                        ContactId = i.ContactId
+                    };
+                    db.Entry(c).State = System.Data.Entity.EntityState.Deleted;
+                }
+                db.SaveChanges();
+                //var person = db.Person.Where(x => x.PersonId == id).First();
+                Person p = new Person()
+                {
+                    PersonId = id
+                };
+                db.Entry(p).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+                //return Content("delete");
 
                 return RedirectToAction("Index");
             }

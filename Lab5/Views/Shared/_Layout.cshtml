@@ -23,9 +23,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
                     <li><a href="/Person/Create">Create</a></li>
-                    <li><a href="/Create">Add Contact</a></li>
+                    <li><a href="/Person/Index">Index</a></li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

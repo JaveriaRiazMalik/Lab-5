@@ -328,6 +328,7 @@
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
     <Content Include="Views\Contact\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>

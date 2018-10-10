@@ -10,7 +10,7 @@ namespace Lab5.Models
     {
         //[System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int PersonId { get; set; }
-       // [RegularExpression(@"^[a-z ,.'-]+$/i")]
+       //[RegularExpression(@"^[a-z -']+$")]
         public string FirstName { get; set; }
         //[RegularExpression(@"^[a-z ,.'-]+$/i")]
         public string MiddleName { get; set; }
