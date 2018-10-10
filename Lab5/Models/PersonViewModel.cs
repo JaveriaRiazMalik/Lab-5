@@ -16,13 +16,13 @@ namespace Lab5.Models
 
         //[System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int PersonId { get; set; }
-        [RegularExpression(@"^[a-z -']+$")]
+        ///[RegularExpression(@"^[a-z -']+$")]
         public string FirstName { get; set; }
 
-        [RegularExpression(@"^[a-z -']+$")]
+        ///[RegularExpression(@"^[a-z -']+$")]
         public string MiddleName { get; set; }
 
-        [RegularExpression(@"^[a-z -']+$")]
+        ///[RegularExpression(@"^[a-z -']+$")]
         public string LastName { get; set; }
 
         [DataType(DataType.Date)]

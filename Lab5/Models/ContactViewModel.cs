@@ -16,7 +16,7 @@ namespace Lab5.Models
 
         public string ContactNumber { get; set; }
 
-        [RegularExpression(@"^[a-z -']+$")]
+        //[RegularExpression(@"^[a-z -']+$")]
         public string Type { get; set; }
         public int PersonId { get; set; }
         
