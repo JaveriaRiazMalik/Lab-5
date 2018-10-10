@@ -14,9 +14,10 @@ namespace Lab5.Models
         // Attributes match to the given table
         public int ContactId { get; set; }
 
+        [RegularExpression(@"^[0-9]*$")]
         public string ContactNumber { get; set; }
 
-        //[RegularExpression(@"^[a-z -']+$")]
+        [RegularExpression(@"^[A-Z][a-zA-Z]*$")]
         public string Type { get; set; }
         public int PersonId { get; set; }
         

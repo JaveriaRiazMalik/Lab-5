@@ -16,13 +16,13 @@ namespace Lab5.Models
 
         //[System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int PersonId { get; set; }
-        ///[RegularExpression(@"^[a-z -']+$")]
+        [RegularExpression(@"^[A-Z][a-zA-Z]*$")]
         public string FirstName { get; set; }
 
-        ///[RegularExpression(@"^[a-z -']+$")]
+        [RegularExpression(@"^[A-Z][a-zA-Z]*$")]
         public string MiddleName { get; set; }
 
-        ///[RegularExpression(@"^[a-z -']+$")]
+        [RegularExpression(@"^[A-Z][a-zA-Z]*$")]
         public string LastName { get; set; }
 
         [DataType(DataType.Date)]
@@ -35,26 +35,25 @@ namespace Lab5.Models
 
         public string HomeAddress { get; set; }
 
-        //[RegularExpression(@"^[a-z ,.'-]+$/i")]
+        [RegularExpression(@"^[0-9A-Za-z ]+$")]
         public string HomeCity { get; set; }
 
-        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-        //ErrorMessage = "Please enter correct email address")]
+        [RegularExpression(@"^[a-z0-9][-a-z0-9.!#$%&'*+-=?^_`{|}~\/]+@([-a-z0-9]+\.)+[a-z]{2,5}$",
+        ErrorMessage = "Please enter correct email address")]
         public string FaceBookAccountId { get; set; }
 
-        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-        //ErrorMessage = "Please enter correct email address")]
+        
         public string LinkedInId { get; set; }
         [DataType(DataType.Date)]
         public DateTime UpdateOn { get; set; }
         public string ImagePath { get; set; }
 
-        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-        //ErrorMessage = "Please enter correct email address")]
+        [RegularExpression(@"^[a-z0-9][-a-z0-9.!#$%&'*+-=?^_`{|}~\/]+@([-a-z0-9]+\.)+[a-z]{2,5}$",
+        ErrorMessage = "Please enter correct email address")]
         public string TwitterId { get; set; }
 
-        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-        ///ErrorMessage = "Please enter correct email address")]
+        [RegularExpression(@"^[a-z0-9][-a-z0-9.!#$%&'*+-=?^_`{|}~\/]+@([-a-z0-9]+\.)+[a-z]{2,5}$",
+        ErrorMessage = "Please enter correct email address")]
         public string EmailId { get; set; }
 
 
