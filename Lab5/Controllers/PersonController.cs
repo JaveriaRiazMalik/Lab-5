@@ -11,12 +11,17 @@ namespace Lab5.Controllers
     public class PersonController : Controller
     {
         // GET: Person
+        /// <summary>
+        ///when we create a new contact it add in the create function and then in this function it enter
+        ///in list and then add in the Data base Entity
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             List<PersonViewModel> l = new List<PersonViewModel>();
             PhoneBookDbEntities db = new PhoneBookDbEntities();
             var v = db.Person.ToList();
-            foreach(var i in v)
+            foreach(var i in v) // Var type variable to store the list of contacts
             {
                     if (User.Identity.GetUserId() == i.AddedBy)
                     {
@@ -46,6 +51,11 @@ namespace Lab5.Controllers
         }
 
         // GET: Person/Details/5
+        /// <summary>
+        /// Show the details of list of contacts of those user whic are login
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int id)
         {
             List<PersonViewModel> l = new List<PersonViewModel>();
@@ -53,7 +63,7 @@ namespace Lab5.Controllers
             var v = db.Person.ToList();
             foreach (var i in v)
             {
-                if (i.PersonId == id)
+                if (i.PersonId == id) // check the Id of login person to show only those contacts that are create by this login
                 {
                     PersonViewModel p = new PersonViewModel();
                     p.PersonId = i.PersonId;
@@ -84,6 +94,11 @@ namespace Lab5.Controllers
         }
 
         // POST: Person/Create
+        /// <summary>
+        /// Create the new contacts and then add the in to the entity and call the index function
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(PersonViewModel collection)
         {
@@ -124,13 +139,19 @@ namespace Lab5.Controllers
         }
 
         // POST: Person/Edit/5
+        /// <summary>
+        /// This function  edit the details of the create persons and update their information
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, PersonViewModel collection)
         {
             try
             {
                 PhoneBookDbEntities db = new PhoneBookDbEntities();
-                var p = db.Person.Where(x=>x.PersonId==id).First();
+                var p = db.Person.Where(x=>x.PersonId==id).First(); //Condition to check the Id of specific person to edit only his/her details
 
                 
                 
@@ -165,6 +186,12 @@ namespace Lab5.Controllers
         }
 
         // POST: Person/Delete/5
+        /// <summary>
+        /// Delete the person and then add the new one
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(int id, PersonViewModel collection)
         {
@@ -172,7 +199,7 @@ namespace Lab5.Controllers
             {
                 PhoneBookDbEntities db = new PhoneBookDbEntities();
 
-                var contacts = db.Contacts.Where(x => x.PersonId == id);
+                var contacts = db.Contacts.Where(x => x.PersonId == id); //Condition to check the Id of specific person to edit only his/her details
                 foreach (var i in contacts)
                 {
                     Contact c = new Contact()
