@@ -26,6 +26,7 @@ namespace Lab5.Controllers
                     if (User.Identity.GetUserId() == i.AddedBy)
                     {
                         PersonViewModel p = new PersonViewModel();
+                       
                         p.PersonId = i.PersonId;
                         p.FirstName = i.FirstName;
                         p.MiddleName = i.MiddleName;

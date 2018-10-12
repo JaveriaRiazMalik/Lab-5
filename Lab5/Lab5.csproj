@@ -213,6 +213,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
@@ -330,6 +331,8 @@
     <Content Include="Views\Contact\Create.cshtml" />
     <Content Include="Views\Person\Delete.cshtml" />
     <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\Dashboard\BirthdayLists.cshtml" />
+    <Content Include="Views\Dashboard\UpdatedLists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

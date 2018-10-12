@@ -15,6 +15,7 @@ namespace Lab5.Models
         public int ContactId { get; set; }
 
         [RegularExpression(@"^[0-9]*$")]
+        [Display(Name = "Contact Number")]
         public string ContactNumber { get; set; }
 
         [RegularExpression(@"^[A-Z][a-zA-Z]*$")]
